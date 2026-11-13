@@ -47,7 +47,7 @@ flowchart LR
 
 ## Trade-offs of this stack
 
-- **Small, fast and boring to run.** One static binary, a tiny image, quick cold starts and low memory. The [comparison](https://github.com/the-vishal-kumar/nodejs-typescript-rest-boilerplate/blob/main/docs/comparison.md) has the measured numbers.
+- **Small to ship, not lean under load.** One static binary in the smallest image of the three (37.5 MB) with the lowest memory at rest (12.6 MiB) and the highest throughput (182.5 requests/s). Under load it has the highest peak memory (338.6 MiB, from hashing every concurrent sign-in at once), and its cold start (958 ms) is slower than Express (814 ms). The [comparison](https://github.com/the-vishal-kumar/nodejs-typescript-rest-boilerplate/blob/main/docs/comparison.md) has the measured numbers.
 - **More code for the same behaviour.** Without a validation library or framework, request decoding, validation messages and middleware are written out by hand. That code is explicit and easy to step through, but it is more lines than the Fastify version.
 - **Compile-time safety stops at the SQL boundary.** Go's types cover the handlers and domain, but queries are strings checked only by the integration tests. A generator such as sqlc would close that gap at the cost of a build step.
 - **Relational guarantees for free.** As in the Fastify version, unique emails, foreign keys, check constraints and the row lock live in the database, where the MongoDB version needs a lease document.

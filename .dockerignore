@@ -1,0 +1,8 @@
+.cache
+.git
+.github
+.env
+.env.*
+*.out
+.plans
+.triad

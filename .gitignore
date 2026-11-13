@@ -1,0 +1,5 @@
+.cache/
+.env
+/api
+*.out
+.DS_Store

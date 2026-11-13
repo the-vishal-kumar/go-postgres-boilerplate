@@ -9,7 +9,7 @@ IMAGE := gpb-api:local
 # The conformance suite and load test live in the reference implementation,
 # released by tag. One copy, pinned; fetched into the git-ignored .cache/.
 CONFORMANCE_REPO := https://github.com/the-vishal-kumar/nodejs-typescript-rest-boilerplate.git
-CONFORMANCE_TAG := conformance-v1
+CONFORMANCE_TAG := conformance-v2
 SUITE := .cache/loan-api-conformance
 export UID := $(shell id -u)
 export GID := $(shell id -g)

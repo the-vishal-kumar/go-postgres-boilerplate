@@ -1,8 +1,7 @@
-.cache
-.git
-.github
-.env
-.env.*
-*.out
-.plans
-.triad
+# Allow-list: only what the Dockerfile copies.
+*
+!go.mod
+!go.sum
+!cmd
+!internal
+!migrations
